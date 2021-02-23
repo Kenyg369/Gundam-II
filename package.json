@@ -1,0 +1,22 @@
+{
+  "name": "gundam",
+  "version": "1.0.0",
+  "description": "\"# Gundam\"",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kenyg369/Gundam.git"
+  },
+  "author": "ken",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kenyg369/Gundam/issues"
+  },
+  "homepage": "https://github.com/Kenyg369/Gundam#readme",
+  "devDependencies": {
+    "vite": "^2.0.2"
+  }
+}

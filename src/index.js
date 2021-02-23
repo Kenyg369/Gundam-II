@@ -1,21 +1,19 @@
 
 let slideIndex = 0
-let slides = document.querySelectorAll("mySlides");
+let slides = document.querySelectorAll(".slides__slide");
 
-slides[slideIndex].style.display = "block";
+let rollForward = document.querySelector(".next")
+let rollBackward = document.querySelector(".prev")
 
-let rollForward = document.getElementsByClassName("next")
-let rollBackward = document.getElementsByClassName("prev")
-
-rollForward.addEventListener("click",{
+rollForward.addEventListener("click", () => {
+  console.log("click forward")
   slideIndex = ++slideIndex % slides.length;
-  slides[slideIndex-2].classList.toggle = "mySlides";
-  slides[slideIndex-1].classList.toggle = "myShownSlides";
+  slides[slideIndex-2].classList.toggle("slides__slide--show");
+  slides[slideIndex-1].classList.toggle("slides__slide--show");
 })
 
-rollBackward.addEventListener("click",{
+rollBackward.addEventListener("click", () => {
   slideIndex = --slideIndex % slides.length;
-  slides[slideIndex].classList.toggle = "mySlides";
-  slides[slideIndex-1].classList.toggle = "myShownSlides";
+  slides[slideIndex].classList.toggle("slides__slide--show");
+  slides[slideIndex-1].classList.toggle("slides__slide--show");
 })
-
