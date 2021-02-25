@@ -7,7 +7,7 @@ body{
 }
   
 .images-list {
-  height: 100px;
+  height: 130px;
   display: flex;
   list-style: none;
 }
@@ -18,11 +18,13 @@ body{
 
 .images-list__item > .images-list__item__image {
   height: 100%;
+  border: 2px solid red;
 }
 
 .slides-container {
   width: 1000px;
-  height: 500px;
+  height: 700px;
+  background-color: black;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -57,8 +59,8 @@ body{
 }
 
 .slides__slide__text {
-  color: #f2f2f2;
-  font-size: 15px;
+  color: #f0042c;
+  font-size: 25px;
   padding: 8px 12px;
   position: absolute;
   bottom: 8px;
@@ -75,11 +77,12 @@ body{
   position: absolute;
   width: 30px;
   padding: 16px;
-  color: white;
+  color:rgb(143, 21, 42);
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
   user-select: none;
+  background-color: rgba(61, 15, 15, 0.288);
 }
 
 .slides-control.slides-control--prev {
@@ -91,5 +94,44 @@ body{
 }
 
 .slides-control:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(97, 82, 231, 0.288);
 }
+
+.dot-container{
+  align-items: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 3px;
+  background-color: rgb(126, 99, 99);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+
+
