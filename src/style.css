@@ -18,7 +18,10 @@ body{
 
 .images-list__item > .images-list__item__image {
   height: 100%;
-  border: 2px solid red;
+}
+
+.images-list__item--show{
+  border: 2px solid rgb(56, 13, 13);
 }
 
 .slides-container {
@@ -97,7 +100,7 @@ body{
   background-color: rgba(97, 82, 231, 0.288);
 }
 
-.dot-container{
+.dots-container{
   align-items: center;
 }
 
@@ -113,7 +116,7 @@ body{
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.dot--active, .dot:hover {
   background-color: #717171;
 }
 
