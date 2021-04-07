@@ -6,6 +6,18 @@ let imagesList = document.querySelectorAll(".images-list__item");
 let showcase = document.querySelectorAll(".slides__slide");
 let rollingDots = document.querySelectorAll(".dot");
 
+for (let [idx, image] of imagesList.entries()) {
+  image.addEventListener("click",()=>{
+    updateSlides(idx);
+  })
+}
+
+for (let [idx, dot] of rollingDots.entries()) {
+  dot.addEventListener("click",()=>{
+    updateSlides(idx);
+  })
+}
+
 updateSlides(currentIndex);
 
 // Main-function
@@ -16,40 +28,24 @@ function updateSlides(idx){
   updateImageList()
   updateShowcase()
   updateDots()
-
 }
+
+
 // Sub-function 
 function updateImageList(){
-  for (let [idx, image] of imagesList.entries()) {
-    image.addEventListener("click",()=>{
-      imagesList[idx].classList.toggle("images-list__item--hightlight");
+      imagesList[currentIndex].classList.toggle("images-list__item--hightlight");
       imagesList[previousIndex].classList.toggle("images-list__item--hightlight");
-
-      updateSlides(idx);
-    })
-  }
 }
 
+
 function updateShowcase(){
-  for (let [idx, showcase] of showcase.entries()) {   
-    showcase.addEventListener("click",()=>{
-      showcase[idx].classList.toggle("slides__slide--show");
+      showcase[currentIndex].classList.toggle("slides__slide--show");
       showcase[previousIndex].classList.toggle("slides__slide--show");
-      
-      updateSlides(idx);
-    })
-  }
 }
 
 function updateDots(){
-  for (let [idx, dot] of rollingDots.entries()) {
-    dot.addEventListener("click",()=>{
-      dot[idx].classList.toggle("dot--active");
-      dot[previousIndex].classList.toggle("dot--active");
-
-      updateSlides(idx);
-    })
-  }
+      rollingDots[currentIndex].classList.toggle("dot--active");
+      rollingDots[previousIndex].classList.toggle("dot--active");
 }
 
 
@@ -61,13 +57,14 @@ let rollBackward = document.querySelector(".slides-control--prev")
 const absoluteIndex = (index,arr) => index < 0 ? arr.length + index: index
 
 rollForward.addEventListener("click", () => {
-  slideIndex = ++slideIndex % slides.length;
-  showcase[absoluteIndex(slideIndex,slides)].classList.toggle("slides__slide--show");
-  showcase[absoluteIndex(slideIndex-1,slides)].classList.toggle("slides__slide--show");
+  const limitedIndex = (currentIndex + 1) % imagesList.length
+  console.log(limitedIndex) 
+  updateSlides(limitedIndex)
 })
 
 rollBackward.addEventListener("click", () => {
-  slideIndex = --slideIndex % slides.length;
-  showcase[absoluteIndex(slideIndex,slides)].classList.toggle("slides__slide--show");
-  showcase[absoluteIndex(slideIndex+1,slides)].classList.toggle("slides__slide--show");
+  const limitedIndex = (currentIndex -1) % imagesList.length
+  const absLimitedIndex = absoluteIndex(limitedIndex,imagesList)
+  console.log(absLimitedIndex)
+  updateSlides(absLimitedIndex)
 })
