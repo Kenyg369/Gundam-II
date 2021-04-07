@@ -31,7 +31,7 @@ function updateImageList(){
 }
 
 function updateShowcase(){
-  for (let [idx, showcase] of showcase.entries()) {
+  for (let [idx, showcase] of showcase.entries()) {   
     showcase.addEventListener("click",()=>{
       showcase[idx].classList.toggle("slides__slide--show");
       showcase[previousIndex].classList.toggle("slides__slide--show");
