@@ -1,6 +1,10 @@
 body{
   font-family:sans-serif;
+}
+
+#app {
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -44,7 +48,7 @@ body{
 }
 
 .slides__slide {
-  display: none;
+  display: block;
   height: 100%;
   position: relative;
 }
@@ -71,9 +75,6 @@ body{
   text-align: center;
 }
 
-.slides__slide.slides__slide--show {
-  display: block;
-}
 
 .slides-control {
   cursor: pointer;
