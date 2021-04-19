@@ -11,7 +11,6 @@ const images = [
   { src: "/pics/X-10A Freedom.jpg", name: "Freedom" },
 ]
 
-
 function renderInfo(name, description, container) {
   const info = document.createElement("div");
   info.innerHTML = `
@@ -46,7 +45,7 @@ function renderThumbnail(images, container) {
     nailImg.classList.add("images-list__item__image")
     nailImg.src = image.src 
     nailImg.alt = image.name
-    
+       
     nailItem.append(nailImg)
     nailList.append(nailItem)
   })
@@ -83,23 +82,28 @@ function renderThumbnail(images, container) {
   return dotsList
 };
 
+/* function to render a showercase ,unlike other component which display all the items
+ */
 function renderShowcase(container) {
   // todo: create showcase container
   const showcase = document.createElement("div")
   showcase.classList.add("slides-container","fade")
-  // todo: create sldes container
+    // todo: create sldes container
   const slides = document.createElement("div")
   slides.classList.add("slides")
-  // todo: create slide container
+      // todo: create slide container
   const slide = document.createElement("div")
   slide.classList.add("slides__slide", "fade")
-  // todo: create slide clildren
+        // todo: create slide clildren
   const slideNumber = document.createElement("div")
   slideNumber.classList.add("slides__slide__number")
+        // todo: create slide clildren img
   const slideImg = document.createElement("img")
   slideImg.classList.add("slides__slide__img")
+        // todo: create slide clildren img
   const slideText = document.createElement("div")
-  slideText.classList.add("slides__slide__text")
+  slideText.classList.add("slides__slide__text")  
+  
   // todo: create buttons
   const prevButton = document.createElement("button")
   prevButton.classList.add("slides-control", "slides-control--prev")
@@ -107,15 +111,14 @@ function renderShowcase(container) {
   const nextButton = document.createElement("button")
   nextButton.classList.add("slides-control", "slides-control--next")
   nextButton.textContent=">"
-  // todo: glue all elements
+
+  // todo: glue all elements with the hierarchy
   slide.append(slideNumber,slideImg,slideText)  
   slides.append(slide)
   showcase.append(slides,prevButton,nextButton)  
   container.append(showcase)
 
-
   // Roll Forward & Roll Backward
-
   let rollForward = document.querySelector(".slides-control--next")
   let rollBackward = document.querySelector(".slides-control--prev")
 
@@ -134,7 +137,7 @@ function renderShowcase(container) {
 
   return showcase
 }
-
+// set up header
 let thumbnailList
 let showcase
 let dotsList
@@ -150,9 +153,12 @@ function renderApp(container) {
 
 renderApp(document.querySelector("#app"))
 
+// create item list and get ready for later math mantiplation
 let imagesList = thumbnailList.querySelectorAll(".images-list__item");
 let rollingDots = dotsList.querySelectorAll(".dot");
-updateSlides(currentIndex, true);
+
+// Initiation of webpage
+pdateSlides(currentIndex, true);
 
 // Main-function
 
